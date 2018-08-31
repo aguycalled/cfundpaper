@@ -109,14 +109,14 @@ using the Proposal's deposit address.
 A staker will add commitments in the coinbase (first transaction of a block) of its minted blocks in the form of extra outputs for every entry in his Proposals hash list. Those outputs will meet following structure:
 
 \begin{itemize}
-\item scriptPubKey (36 bytes): OP\_RETURN OP\_CFUND OP\_PROP OP\_YES ProposalHash 
+\item scriptPubKey (37 bytes): OP\_RETURN OP\_CFUND OP\_PROP OP\_YES 0x20 ProposalHash 
 \item nValue: 0
 \end{itemize}
 
 Stakers will be able to vote against a Proposal including its hash in a list of rejected Proposals and modifying the structure of the appropriate output of the coinbase commitment:
 
 \begin{itemize}
-\item scriptPubKey (36 bytes): OP\_RETURN OP\_CFUND OP\_PROP OP\_NO ProposalHash
+\item scriptPubKey (37 bytes): OP\_RETURN OP\_CFUND OP\_PROP OP\_NO 0x20 ProposalHash
 \item nValue: 0
 \end{itemize}
 
@@ -125,13 +125,13 @@ Stakers will be able to express his vote for releasing funds from any withdrawal
 
 Positive vote:
 \begin{itemize}
-\item scriptPubKey (36 bytes): OP\_RETURN OP\_CFUND OP\_PREQ OP\_YES PaymentRequestHash
+\item scriptPubKey (37 bytes): OP\_RETURN OP\_CFUND OP\_PREQ OP\_YES 0x20 PaymentRequestHash
 \item Amount: 0
 \end{itemize}
 
 Negative vote:
 \begin{itemize}
-\item scriptPubKey (36 bytes): OP\_RETURN OP\_CFUND OP\_PREQ OP\_NO PaymentRequestHash
+\item scriptPubKey (37 bytes): OP\_RETURN OP\_CFUND OP\_PREQ OP\_NO 0x20 PaymentRequestHash
 \item Amount: 0
 \end{itemize}
 
